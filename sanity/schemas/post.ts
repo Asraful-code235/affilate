@@ -12,6 +12,12 @@ export default defineType({
     }),
 
     defineField({
+      name: "url",
+      title: "Affiliation URL",
+      type: "string",
+    }),
+
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -54,6 +60,18 @@ export default defineType({
       options: {
         layout: "grid",
       },
+    }),
+    defineField({
+      name: "cities",
+      title: "Cities",
+      type: "array",
+      of: [{ type: "reference", to: { type: "city" } }],
+    }),
+    defineField({
+      name: "accessibility",
+      title: "Property Accessibility",
+      type: "array",
+      of: [{ type: "reference", to: { type: "propertyaccessibility" } }],
     }),
     defineField({
       name: "averageRating",
