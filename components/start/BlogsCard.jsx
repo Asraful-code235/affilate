@@ -59,7 +59,7 @@ export default function BlogsCard({ blog, ...props }) {
             )}
           >
             <a href={blog?.url || ""} target="_blank">
-              Room From {blog?.price} BDT
+              Room From {blog?.price} USD
             </a>
           </Button>
         </article>

@@ -68,6 +68,12 @@ export default defineType({
       of: [{ type: "reference", to: { type: "city" } }],
     }),
     defineField({
+      name: "states",
+      title: "States",
+      type: "array",
+      of: [{ type: "reference", to: { type: "states" } }],
+    }),
+    defineField({
       name: "accessibility",
       title: "Property Accessibility",
       type: "array",
@@ -92,6 +98,16 @@ export default defineType({
       name: "price",
       title: "Price",
       type: "number",
+    }),
+    defineField({
+      name: "checkIn",
+      title: "Check-in Date",
+      type: "datetime",
+    }),
+    defineField({
+      name: "checkOut",
+      title: "Check-out Date",
+      type: "datetime",
     }),
 
     defineField({

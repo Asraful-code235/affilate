@@ -5,6 +5,7 @@ import Footer from "../components/start/Footer";
 import Header from "../components/start/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { FilterProvider } from "../context/FilterContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +14,15 @@ const queryClient = new QueryClient();
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        {/* <FilterProvider> */}
+        <body className={inter.className}>
+          <Header />
           <main>{children}</main>
-        </QueryClientProvider>
-        <Footer />
-      </body>
+          <Footer />
+        </body>
+        {/* </FilterProvider> */}
+      </QueryClientProvider>
     </html>
   );
 }

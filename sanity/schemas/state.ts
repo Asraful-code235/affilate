@@ -1,13 +1,13 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "states",
-  title: "States",
+  name: "city",
+  title: "City",
   type: "document",
   fields: [
     defineField({
       name: "cityname",
-      title: "Enter the State name",
+      title: "Enter the city name",
       type: "string",
     }),
     defineField({
@@ -18,12 +18,6 @@ export default defineType({
         source: "cityname",
         maxLength: 96,
       },
-    }),
-    defineField({
-      name: "cities",
-      title: "Cities",
-      type: "array",
-      of: [{ type: "reference", to: { type: "city" } }],
     }),
   ],
   preview: {

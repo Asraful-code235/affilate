@@ -6,7 +6,18 @@ import post from "./schemas/post";
 import author from "./schemas/author";
 import city from "./schemas/city";
 import propertyaccessibility from "./schemas/propertyaccessibility";
+import state from "./schemas/state";
+import LogoChange from "./schemas/LogoChange";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, city, propertyaccessibility, author, category, blockContent],
+  types: [
+    LogoChange,
+    post,
+    city,
+    state,
+    propertyaccessibility,
+    author,
+    category,
+    blockContent,
+  ],
 };
