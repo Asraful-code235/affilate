@@ -4,7 +4,6 @@ import { FadeIn } from "../FadeIn";
 import { Button } from "../ui/button";
 
 export default function BlogsCard({ blog, ...props }) {
-  console.log(blog);
   return (
     blog && (
       <FadeIn>

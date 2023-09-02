@@ -23,7 +23,7 @@ export default function Header() {
   if (isError) return "Something went wrong";
 
   return (
-    <header className="w-full bg-sky-800 text-white py-8 flex items-center justify-center">
+    <header className="w-full bg-sky-800  text-white py-8 flex items-center justify-center">
       <h1 className="text-2xl font-bold">
         {states?.logo ? states?.logo.name : "Hotel mark"}
       </h1>

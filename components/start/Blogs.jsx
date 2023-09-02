@@ -119,14 +119,19 @@ export default function Blogs() {
       blog?.states?.some((state) => state.slug.current === selectedState);
     const guestMatches =
       !selectedGuests || blog.rooms >= parseInt(selectedGuests, 10);
+
+    // Parse check-in and check-out dates
+    const checkInDate = checkIn ? new Date(checkIn) : null;
+    const checkOutDate = checkOut ? new Date(checkOut) : null;
+
+    // Ensure valid dates before comparing
+    const isValidCheckInDate = !isNaN(checkInDate);
+    const isValidCheckOutDate = !isNaN(checkOutDate);
+
     const checkInMatches =
-      !checkIn ||
-      (blog.checkInDate >= checkIn &&
-        blog.formatDateToLong(checkInDate) <= formatDateToLong(checkOut));
+      !checkIn || (isValidCheckInDate && blog.checkIn >= checkInDate);
     const checkOutMatches =
-      !checkOut ||
-      (blog.checkOutDate >= checkIn &&
-        blog.formatDateToLong(checkOutDate) <= formatDateToLong(checkOut));
+      !checkOut || (isValidCheckOutDate && blog.checkOut <= checkOutDate);
 
     const cityFilterMatches =
       !selectedCity ||
@@ -157,6 +162,8 @@ export default function Blogs() {
     setCheckOut(null);
   };
 
+  console.log("filteredBlogs", filteredBlogs);
+  console.log(checkOut);
   if (isLoading) return "";
   if (isError) return "Something went wrong";
   return (
@@ -223,7 +230,7 @@ export default function Blogs() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <div className="w-full">
+        {/* <div className="w-full">
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -270,7 +277,8 @@ export default function Blogs() {
               />
             </PopoverContent>
           </Popover>
-        </div>
+        </div> */}
+        <div></div>
         <div className="w-full flex items-center justify-center">
           <Button
             onClick={handleResetFilters}
