@@ -285,9 +285,9 @@ export default function Blogs() {
       </section>
 
       <section className="max-w-7xl mx-auto grid w-full grid-cols-1 md:grid-cols-7 gap-4 px-4">
-        <div className=" col-span-7 md:col-span-2 flex flex-col  mb-8 md:mb-0 gap-4 w-full bg-white p-4 rounded-md shadow-md h-fit">
-          <div className="flex flex-col gap-3">
-            <h3 className="text-gray-600 text-xl font-semibold font-serif">
+        <div className=" col-span-7 md:col-span-2 flex flex-col  mb-8 md:mb-0 gap-10 w-full bg-white p-4 rounded-md shadow-md h-fit">
+          <div className="flex flex-col gap-6">
+            <h3 className="text-sky-700 border-b-2 border-sky-700 text-xl font-semibold font-serif">
               Property Features
             </h3>
             <div className="hidden md:flex md:flex-col gap-2">
@@ -325,8 +325,8 @@ export default function Blogs() {
               </Select>
             </div>
           </div>
-          <div className="flex flex-col gap-3 w-full">
-            <h3 className="text-gray-600 text-xl font-semibold font-serif">
+          <div className="flex flex-col gap-6 w-full">
+            <h3 className="text-sky-700 border-b-2 border-sky-700 text-xl font-semibold font-serif">
               City
             </h3>
             <div className="hidden md:flex md:flex-col gap-2">
