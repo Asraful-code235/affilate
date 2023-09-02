@@ -305,7 +305,7 @@ export default function Blogs() {
             </div>
 
             <div className="block w-full md:hidden">
-              <Select onValueChange={handleAccessibilityCheckboxChange}>
+              <Select onValueChange={(e) => setSelectedAccessibilitySlugs(e)}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select accessibility here" />
                 </SelectTrigger>
