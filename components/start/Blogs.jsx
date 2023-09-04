@@ -162,8 +162,6 @@ export default function Blogs() {
     setCheckOut(null);
   };
 
-  console.log("filteredBlogs", filteredBlogs);
-  console.log(checkOut);
   if (isLoading) return "";
   if (isError) return "Something went wrong";
   return (

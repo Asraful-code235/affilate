@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 async function getLogo() {
-  const res = await axios.get("/api/city/getCity");
+  const res = await axios.get("/api/logo/getLogo");
   return (await res).data;
 }
 
@@ -24,8 +24,8 @@ export default function Header() {
 
   return (
     <header className="w-full bg-sky-800  text-white py-8 flex items-center justify-center">
-      <h1 className="text-2xl font-bold">
-        {states?.logo ? states?.logo.name : "Hotel mark"}
+      <h1 className="text-2xl font-bold italic">
+        {states?.logo ? states?.logo[0]?.name : "Hotel mark"}
       </h1>
     </header>
   );
