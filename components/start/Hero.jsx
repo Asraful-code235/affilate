@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FadeIn } from "../FadeIn";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 async function getLogo() {
   const res = await axios.get("/api/logo/getLogo");
