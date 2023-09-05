@@ -18,7 +18,7 @@ export default function Hero() {
     queryFn: getLogo,
     keepPreviousData: true,
   });
-  console.log(states);
+
   if (isLoading) return "";
   if (isError) return "Something went wrong";
   return (

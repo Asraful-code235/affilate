@@ -17,7 +17,7 @@ export default function Footer() {
     queryFn: getLogo,
     keepPreviousData: true,
   });
-  console.log(states);
+
   if (isLoading) return "";
   if (isError) return "Something went wrong";
   return (
