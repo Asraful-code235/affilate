@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-sky-800  text-white py-8 flex items-center justify-center">
-      <h1 className="text-2xl font-bold italic">
+      <h1 className="text-2xl font-bold ">
         {states?.logo ? states?.logo[0]?.name : "Hotel mark"}
       </h1>
     </header>

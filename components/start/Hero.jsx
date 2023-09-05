@@ -1,20 +1,35 @@
+"use client";
 import Image from "next/image";
 import { FadeIn } from "../FadeIn";
+import { useQuery } from "@tanstack/react-query";
 
+async function getLogo() {
+  const res = await axios.get("/api/logo/getLogo");
+  return (await res).data;
+}
 export default function Hero() {
+  const {
+    data: states,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["newdata"],
+    queryFn: getLogo,
+    keepPreviousData: true,
+  });
+  console.log(states);
+  if (isLoading) return "";
+  if (isError) return "Something went wrong";
   return (
     <section className="w-full h-full relative">
       <FadeIn className="absolute inset-0 bg-black bg-opacity-40 ">
         <div className="flex flex-col gap-8 h-full items-center justify-center">
-          <h1 className="font-bold text-white text-3xl lg:text-5xl text-center">
-            Hotels with Rooftop
+          <h1 className="font-bold text-white text-3xl lg:text-5xl leading-7 max-w-2xl mx-auto text-center">
+            {(states?.logo && states?.logo[0]?.herotext) || ""}
           </h1>
-          <h1 className="font-bold text-white text-3xl lg:text-5xl text-center">
-            Pool near Hermann Park
-          </h1>
+
           <p className="font-bold text-white text-opacity-60 text-lg lg:text-2xl text-center">
-            hotels with rooftop pool near Hermann Park, Houston. Hope you enjoy
-            it
+            {(states?.logo && states?.logo[0]?.herosubtext) || ""}
           </p>
         </div>
       </FadeIn>

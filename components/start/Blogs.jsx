@@ -155,11 +155,14 @@ export default function Blogs() {
   const filteredCities = filteredStates?.cities;
 
   const handleResetFilters = () => {
-    setSelectedCitySlugs([]);
-    setSelectedAccessibilitySlugs([]);
-    setSelectedState("");
-    setCheckIn(null);
-    setCheckOut(null);
+    setSelectedCitySlugs([]); // Reset selected city slugs to an empty array
+    setSelectedCity(""); // Reset selected city to an empty string
+    setSelectedAccessibilitySlugs([]); // Reset selected accessibility slugs to an empty array
+    setSelectedState(""); // Reset selected state to an empty string
+    setCheckIn(null); // Reset check-in date to null
+    setCheckOut(null); // Reset check-out date to null
+    setSelectedGuests(null);
+    // Reset selected guests to null
   };
 
   if (isLoading) return "";

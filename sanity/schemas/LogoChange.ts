@@ -11,6 +11,21 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "herotext",
+      title: "Hero Header Text ",
+      type: "string",
+    }),
+    defineField({
+      name: "herosubtext",
+      title: "Hero Subheader Text ",
+      type: "string",
+    }),
+    defineField({
+      name: "footertext",
+      title: "Footer Text ",
+      type: "text",
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "image",
