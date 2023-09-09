@@ -9,12 +9,14 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
       name: "url",
       title: "Affiliation URL",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -25,6 +27,7 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "author",
@@ -36,6 +39,7 @@ export default defineType({
       name: "description",
       title: "Description",
       type: "text",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "mainImage",
@@ -51,6 +55,7 @@ export default defineType({
           title: "Alternative Text",
         },
       ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "photos",
@@ -60,44 +65,52 @@ export default defineType({
       options: {
         layout: "grid",
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "cities",
       title: "Cities",
       type: "array",
       of: [{ type: "reference", to: { type: "city" } }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "states",
       title: "States",
       type: "array",
       of: [{ type: "reference", to: { type: "states" } }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "accessibility",
       title: "Property Accessibility",
       type: "array",
       of: [{ type: "reference", to: { type: "propertyaccessibility" } }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "averageRating",
       title: "AverageRating",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "stars",
       title: "Stars",
       type: "number",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "rooms",
       title: "Rooms",
       type: "number",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "price",
       title: "Price",
       type: "number",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "checkIn",
@@ -120,6 +133,7 @@ export default defineType({
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      validation: (Rule) => Rule.required(),
     }),
     // defineField({
     //   name: 'body',
