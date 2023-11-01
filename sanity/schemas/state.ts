@@ -9,6 +9,7 @@ export default defineType({
       name: "cityname",
       title: "Enter the city name",
       type: "string",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "slug",
@@ -18,6 +19,7 @@ export default defineType({
         source: "cityname",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
