@@ -149,7 +149,7 @@ export default function Blogs() {
   });
 
   const filteredStates = states?.states?.find(
-    (state) => state?.slug.current === selectedState
+    (state) => state?.slug?.current === selectedState
   );
 
   const filteredCities = filteredStates?.cities;
@@ -165,53 +165,54 @@ export default function Blogs() {
     // Reset selected guests to null
   };
 
+  console.log("states", states?.states);
+
   if (isLoading) return "";
   if (isError) return "Something went wrong";
   return (
     <>
       <section className="grid w-full md:w-fit  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 py-6 px-4 md:px-8 bg-white md:-mt-24 z-50 border border-transparent rounded-md shadow-md">
-        <Select onValueChange={(e) => setSelectedState(e)}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select State here" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>States</SelectLabel>
-              {states?.states?.map((state, key) => (
-                <SelectItem key={key} value={state?.slug?.current}>
-                  {state?.cityname}
-                </SelectItem>
+        <select
+          name=""
+          id=""
+          onChange={(e) => setSelectedState(e)}
+          className="border border-gray-200 rounded-md"
+        >
+          <option value="">Select States</option>
+          {states?.states?.map((state, key) => (
+            <option key={key} value={state?.slug?.current} className="">
+              {state?.cityname}
+            </option>
+          ))}
+        </select>
+
+        <select
+          name=""
+          id=""
+          onChange={(e) => setSelectedCity(e)}
+          className="border border-gray-200 rounded-md"
+        >
+          {selectedState ? (
+            <>
+              <option value="">Select City</option>
+              {filteredCities?.map((city, key) => (
+                <option key={key} value={city?.slug?.current}>
+                  {city?.cityname}
+                </option>
               ))}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-        <Select onValueChange={(e) => setSelectedCity(e)}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select City here" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>City</SelectLabel>
-              {selectedState ? (
-                <>
-                  {filteredCities?.map((city, key) => (
-                    <SelectItem key={key} value={city?.slug?.current}>
-                      {city?.cityname}
-                    </SelectItem>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {city?.city?.map((city, key) => (
-                    <SelectItem key={key} value={city?.slug?.current}>
-                      {city?.cityname}
-                    </SelectItem>
-                  ))}
-                </>
-              )}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
+            </>
+          ) : (
+            <>
+              <option value="">Select City</option>
+              {city?.city?.map((city, key) => (
+                <option key={key} value={city?.slug?.current}>
+                  {city?.cityname}
+                </option>
+              ))}
+            </>
+          )}
+        </select>
+
         <Select onValueChange={(e) => setSelectedGuests(e)}>
           <SelectTrigger className="w-w-full">
             <SelectValue placeholder="Select Number of guest" />
